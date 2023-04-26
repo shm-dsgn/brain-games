@@ -41,7 +41,7 @@ const Memory = () => {
     setAccDisplay(false);
     let acc = 0;
     words.forEach((element) => {
-      if (userInput !== null && userInput.includes(element)) {
+      if (userInput !== null && userInput.toLowerCase().includes(element)) {
         acc = acc + 1;
       }
     });

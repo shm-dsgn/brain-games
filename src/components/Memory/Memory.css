@@ -75,9 +75,13 @@
     outline: 0;
   }
   
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     .memory-btn {
       padding: 0 40px;
     }
+
+    #userinput {
+      width: 80%;
+  }
   }
   
