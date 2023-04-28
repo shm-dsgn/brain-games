@@ -54,7 +54,7 @@ const Memory = () => {
 
   return (
     <div className="memory-block">
-      <h1>Memory Test</h1>
+      <h1>1. Memory Test</h1>
       <p id="description">
         In this test, you will see about twenty words, each for a short amount
         of time. Try to memorize as many as you can. Order and case don't
@@ -68,25 +68,23 @@ const Memory = () => {
           </div>
         )}
       </div>
-      {currentIndex < words.length && (
+      {currentIndex <= words.length && (
         <button onClick={displayWords} className="memory-btn">
-          {display && currentIndex < words.length ? "Running" : "Start"}
+          {display && currentIndex < words.length ? "Memorize..." : "Test your memory"}
         </button>
       )}
 
-      {currentIndex >= words.length && (
+      {currentIndex > words.length && (
         <div className="check-block">
           <textarea
             onChange={(e) => setUserInput(e.target.value)}
-            columns="40"
-            rows="10"
             id="userinput"
             placeholder="Write down as many words as you remember. Order and case don't matter. Separate words by space or newlines."
           ></textarea>
           {accDisplay && (
             <button className="memory-btn" onClick={Accuracy}>
               Show Accuracy
-            </button>
+            </button> 
           )}
 
           {!accDisplay && <h2>Your accuracy is {accuracy} out of 20</h2>}

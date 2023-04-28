@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-
-.memory-block, .check-block {
+.scramble-block {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,6 +9,21 @@
     width: 50%;
 }
 
+.scr-check-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.words-def{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 20px;
+}
+
 #userinput {
     width: 100vh;
     height: 100px;
@@ -18,15 +31,10 @@
     font-family: Inter, sans-serif;
 }
 
-.word-display {
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.memory-btn {
+.scramble-btn {
     margin: 24px;
     align-items: center;
-    background-color: #d7ffb1;
+    background-color: #70CCFF;
     border: 2px solid #111;
     border-radius: 8px;
     box-sizing: border-box;
@@ -48,7 +56,7 @@
     touch-action: manipulation;
   }
   
-  .memory-btn:after {
+  .scramble-btn:after {
     background-color: #111;
     border-radius: 8px;
     content: "";
@@ -63,21 +71,21 @@
     z-index: -1;
   }
   
-  .memory-btn:hover:after {
+  .scramble-btn:hover:after {
     transform: translate(0, 0);
   }
   
-  .memory-btn:active {
-    background-color: #cbff9b;
+  .scramble-btn:active {
+    background-color: #56c4ff;
     outline: 0;
   }
   
-  .memory-btn:hover {
+  .scramble-btn:hover {
     outline: 0;
   }
   
   @media (max-width: 768px) {
-    .memory-btn {
+    .scramble-btn {
       padding: 0 40px;
     }
 
