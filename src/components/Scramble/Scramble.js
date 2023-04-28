@@ -16,14 +16,13 @@ const Scramble = () => {
     const options = {
       method: "GET",
       url: "https://random-word-api.vercel.app/api",
-      params: { words: "3" },
+      params: { words: "5" },
     };
 
     axios
       .request(options)
       .then(function (response) {
         setWords(response.data);
-        //add dctionary here
       })
       .catch(function (error) {
         console.error(error);
@@ -102,7 +101,7 @@ const Scramble = () => {
 
             {!accDisplay && (
               <div>
-                <h2>Your accuracy is {accuracy} out of 3</h2>
+                <h2>Your accuracy is {accuracy} out of 5</h2>
                 <p>
                   The correct words are:
                   {words.map((word, i) => (
