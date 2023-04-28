@@ -106,7 +106,7 @@ const Scramble = () => {
                 <p>
                   The correct words are:
                   {words.map((word, i) => (
-                    <span key={i}>- {word.toUpperCase()} </span>
+                    <p key={i}>- {word.toUpperCase()} </p>
                   ))}
                 </p>
               </div>
