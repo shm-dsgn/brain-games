@@ -45,6 +45,7 @@ const Scramble = () => {
   };
 
   const scramble = () => {
+    
     let wordsCopy = [...words];
     for (let i = 0; i < wordsCopy.length; i++) {
       let word = wordsCopy[i];
