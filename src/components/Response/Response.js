@@ -1,0 +1,94 @@
+import "./Response.css";
+import React, { useState, useEffect } from "react";
+
+const Response = () => {
+  const [currentTime, setCurrentTime] = useState(60);
+  const [squares, setSquares] = useState([]);
+  const [isActive, setIsActive] = useState(false);
+  const [score, setScore] = useState(0);
+
+  useEffect(() => {
+    setSquares(Array.from({ length: 16 }));
+  }, []);
+
+  let timerId = null;
+  let moveId = null;
+
+  useEffect(() => {
+    if (isActive) {
+      timerId = setInterval(() => {
+        setCurrentTime((currentTime) => currentTime - 1);
+      }, 1000);
+      moveId = setInterval(toggleColor, 400);
+    }
+    return () => {
+      clearInterval(timerId);
+      clearInterval(moveId);
+    };
+  });
+
+  useEffect(() => {
+    if (currentTime === 0) {
+      clearInterval(timerId);
+      clearInterval(moveId);
+    }
+  }, [currentTime]);
+
+  const startGame = () => {
+    setIsActive(true);
+  };
+
+  const toggleColor = () => {
+    document.querySelectorAll(".square").forEach((square) => {
+      square.classList.remove("mole");
+    });
+    const randomIndex = Math.floor(Math.random() * 16);
+    document.getElementById(randomIndex + 1).classList.toggle("mole");
+  };
+
+  const countClicks = (e) => {
+    if (e.target.classList.contains("mole") && currentTime > 0) {
+      setScore((score) => score + 1);
+    }
+  };
+
+  const refresh = () => {
+    window.location.reload(true);
+  };
+
+  return (
+    <div className="response">
+      <h2>3. Response</h2>
+      <p>Test your reflexes and click on the highlighted boxes as many times as you can in given time.</p>
+      {currentTime !== 0 && (
+        <p>Time Left : <b>{currentTime}</b> s</p>
+      )}
+      <div className="grid">
+        {squares.map((_, index) => (
+          <div
+            className="square"
+            id={index + 1}
+            key={index + 1}
+            onClick={countClicks}
+          ></div>
+        ))}
+      </div>
+      {currentTime !== 0 && (
+        <button onClick={startGame} className="start-btn">
+          Start
+        </button>
+      )}
+
+      {currentTime === 0 && (
+        <div className="result-block">
+          <h2>Game Over, your Score : {score}</h2>
+          <button onClick={refresh} className="start-btn">
+            Restart
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Response;
