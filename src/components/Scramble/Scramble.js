@@ -68,7 +68,7 @@ const Scramble = () => {
   return (
     <div className="scramble-block">
       <h1>2. Scramble</h1>
-      <p id="description">You will get 3 words to solve. Unscramble the words as fast as you can!!</p>
+      <p id="description">You will get 5 words to solve. Unscramble the words as fast as you can!!</p>
 
       {display && (
         <div className="words-def">
@@ -96,7 +96,7 @@ const Scramble = () => {
           <div className="scr-check-block">
             {accDisplay && (
               <button onClick={Accuracy} className="scramble-btn">
-                Show Ans. & Score
+                Show Score
               </button>
             )}
 

@@ -8,6 +8,7 @@
 
 .nav-block {
     margin: 8px;
+    margin-bottom: 12px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -16,7 +17,7 @@
     border: solid #111 2px;
     width: 128px;
     height: 64px;
-    box-shadow: 9px 9px 0px #000000;
+    box-shadow: 7px 7px 0px #000000;
 }
 
 .memory {
@@ -53,4 +54,6 @@ nav a {
         justify-content: space-between;
         align-items: center;
     }
+
+    
   }
