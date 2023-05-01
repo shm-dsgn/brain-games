@@ -4,13 +4,13 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCQZaRU4lgVPqS1H_aHRu_Gl1LRxfvgY5A",
-  authDomain: "my-game-5b1b4.firebaseapp.com",
-  projectId: "my-game-5b1b4",
-  storageBucket: "my-game-5b1b4.appspot.com",
-  messagingSenderId: "785129737067",
-  appId: "1:785129737067:web:2b3896676f519fbdc65a2e",
-  measurementId: "G-HQWH63S2GM",
+  apiKey: "AIzaSyCeqqlUIcSjyWR7kVGBpAMwpyjTQ-ZouBE",
+  authDomain: "shm-brain-games.firebaseapp.com",
+  projectId: "shm-brain-games",
+  storageBucket: "shm-brain-games.appspot.com",
+  messagingSenderId: "830589476101",
+  appId: "1:830589476101:web:a01c4df5782de2e41d2b6c",
+  measurementId: "G-69BF35CL6B"
 };
 
 // Initialize Firebase
