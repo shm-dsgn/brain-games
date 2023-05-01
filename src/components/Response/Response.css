@@ -27,7 +27,7 @@
 }
 
 .mole {
-  background-color: #f0f230;
+  background-color: #fe90e7;
 }
 
 .start-btn {
@@ -75,7 +75,7 @@
 }
 
 .start-btn:active {
-  background-color: #fe90e7;
+  background-color: #ce63ff;
   outline: 0;
 }
 
