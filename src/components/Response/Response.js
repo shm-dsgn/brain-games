@@ -2,7 +2,7 @@ import "./Response.css";
 import React, { useState, useEffect } from "react";
 
 const Response = () => {
-  const [currentTime, setCurrentTime] = useState(5);
+  const [currentTime, setCurrentTime] = useState(60);
   const [squares, setSquares] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [score, setScore] = useState(0);
