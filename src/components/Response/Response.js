@@ -1,8 +1,8 @@
 import "./Response.css";
 import React, { useState, useEffect } from "react";
 
-const Response = () => {
-  const [currentTime, setCurrentTime] = useState(60);
+const Response = (props) => {
+  const [currentTime, setCurrentTime] = useState(30);
   const [squares, setSquares] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [score, setScore] = useState(0);
@@ -33,7 +33,7 @@ const Response = () => {
     if (currentTime === 0) {
       clearInterval(timerId);
       clearInterval(moveId);
-    }// eslint-disable-next-line
+    } // eslint-disable-next-line
   }, [currentTime]);
 
   const startGame = () => {
@@ -58,12 +58,21 @@ const Response = () => {
     window.location.reload(true);
   };
 
+  const exportAccuracy = () => {
+    props.handleCallback(score);
+  };
+
   return (
     <div className="response-page">
       <h1>3. Response</h1>
-      <p>Test your reflexes and click on the highlighted boxes as many times as you can in given time.</p>
+      <p>
+        Test your reflexes and click on the highlighted boxes as many times as
+        you can in given time.
+      </p>
       {currentTime !== 0 && (
-        <p>Time Left : <b>{currentTime}</b> s</p>
+        <p>
+          Time Left : <b>{currentTime}</b> s
+        </p>
       )}
       <div className="grid">
         {squares.map((_, index) => (
@@ -84,6 +93,9 @@ const Response = () => {
       {currentTime === 0 && (
         <div className="result-block">
           <h2>Game Over, your Score : {score}</h2>
+          <button onClick={exportAccuracy} className="start-btn">
+            Save Score
+          </button>
           <button onClick={refresh} className="start-btn">
             Restart
           </button>

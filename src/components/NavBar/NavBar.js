@@ -11,29 +11,21 @@ function NavBar() {
   };
   return (
     <nav className="nav-section">
-      <div className="nav-block memory">
-        <NavLink to="/memory" style={navLinkStyles}>
-          Memory
-        </NavLink>
-      </div>
+      <NavLink to="/memory" style={navLinkStyles}>
+        <div className="nav-block memory">Memory</div>
+      </NavLink>
 
-      <div className="nav-block scramble">
-        <NavLink to="/scramble" style={navLinkStyles}>
-          Scramble
-        </NavLink>
-      </div>
+      <NavLink to="/scramble" style={navLinkStyles}>
+        <div className="nav-block scramble">Scramble</div>
+      </NavLink>
 
-      <div className="nav-block response">
-        <NavLink to="/response" style={navLinkStyles}>
-          Response
-        </NavLink>
-      </div>
-      
-      <div className="nav-block auth">
-        <NavLink to="/" style={navLinkStyles}>
-          Profile
-        </NavLink>
-      </div>
+      <NavLink to="/response" style={navLinkStyles}>
+        <div className="nav-block response">Response</div>
+      </NavLink>
+
+      <NavLink to="/" style={navLinkStyles}>
+        <div className="nav-block auth">Profile</div>
+      </NavLink>
     </nav>
   );
 }

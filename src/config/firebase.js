@@ -10,7 +10,7 @@ const firebaseConfig = {
   storageBucket: "my-game-5b1b4.appspot.com",
   messagingSenderId: "785129737067",
   appId: "1:785129737067:web:2b3896676f519fbdc65a2e",
-  measurementId: "G-HQWH63S2GM"
+  measurementId: "G-HQWH63S2GM",
 };
 
 // Initialize Firebase

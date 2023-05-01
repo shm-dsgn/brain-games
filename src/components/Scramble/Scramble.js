@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Scramble.css";
 import GetDef from "./GetDef";
 
-const Scramble = () => {
+const Scramble = (props) => {
   const [words, setWords] = useState([]);
   const [shuffleStr, setShuffle] = useState([]);
   const [display, setDisplay] = useState(false);
@@ -45,7 +45,6 @@ const Scramble = () => {
   };
 
   const scramble = () => {
-    
     let wordsCopy = [...words];
     for (let i = 0; i < wordsCopy.length; i++) {
       let word = wordsCopy[i];
@@ -65,10 +64,21 @@ const Scramble = () => {
 
   //console.log(words);
 
+  const exportAccuracy = () => {
+    props.handleCallback(accuracy);
+  };
+
   return (
     <div className="scramble-block">
       <h1>2. Scramble</h1>
-      <p id="description">You will get 5 words to solve. Unscramble the words as fast as you can!!</p>
+      <p id="description">
+        You will get 5 words to solve. Unscramble the words as fast as you can!!
+      </p>
+       <p id="description">
+        Note: This test is not timed, but you will have to wait for the words to
+        appear. If words don't appear, please refresh the page. It might be some
+        issue from our side.
+      </p>
 
       {display && (
         <div className="words-def">
@@ -103,14 +113,17 @@ const Scramble = () => {
             {!accDisplay && (
               <div>
                 <h2>Your accuracy is {accuracy} out of 5</h2>
-                <p>
+                <div>
                   The correct words are:
                   {words.map((word, i) => (
                     <p key={i}>- {word.toUpperCase()} </p>
                   ))}
-                </p>
+                </div>
               </div>
             )}
+            <button onClick={exportAccuracy} className="scramble-btn">
+              Save Score
+            </button>
             <button onClick={refresh} className="scramble-btn">
               Restart
             </button>

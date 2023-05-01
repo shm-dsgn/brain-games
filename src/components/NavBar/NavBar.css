@@ -1,59 +1,57 @@
 .nav-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
 
 .nav-block {
-    margin: 8px;
-    margin-bottom: 12px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    border: solid #111 2px;
-    width: 128px;
-    height: 64px;
-    box-shadow: 7px 7px 0px #000000;
+  margin: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: solid #111 2px;
+  width: 128px;
+  height: 64px;
+  box-shadow: 7px 7px 0px #000000;
 }
 
 .memory {
-    background-color: #d7ffb1;
+  background-color: #d7ffb1;
 }
 
 .scramble {
-    background-color: #70CCFF;
+  background-color: #70ccff;
 }
 
 .response {
-    background-color: #fe90e7;
+  background-color: #fe90e7;
 }
 
 .auth {
-    background-color: #ff9a9a;
+  background-color: #ff9a9a;
 }
 
 nav a {
-    font-size: 18px;
-    color: black;
-    text-decoration: none;
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
 }
 
 .nav-block:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
-    .nav-section {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    
+  .nav-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
+}

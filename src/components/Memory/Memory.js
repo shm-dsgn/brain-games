@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./Memory.css";
 
-const Memory = () => {
+const Memory = (props) => {
   const [words, setWords] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [display, setDisplay] = useState(false);
@@ -52,6 +52,10 @@ const Memory = () => {
     window.location.reload(true);
   };
 
+  const exportAccuracy = () => {
+    props.handleCallback(accuracy);
+  };
+
   return (
     <div className="memory-block">
       <h1>1. Memory Test</h1>
@@ -59,6 +63,11 @@ const Memory = () => {
         In this test, you will see about twenty words, each for a short amount
         of time. Try to memorize as many as you can. Order and case don't
         matter. Separate words by space or newlines.
+      </p>
+      <p id="description">
+        Note: This test is not timed, but you will have to wait for the words to
+        appear. If words don't appear, please refresh the page. It might be some
+        issue from our side.
       </p>
 
       <div>
@@ -70,7 +79,9 @@ const Memory = () => {
       </div>
       {currentIndex <= words.length && (
         <button onClick={displayWords} className="memory-btn">
-          {display && currentIndex < words.length ? "Memorize..." : "Start Test"}
+          {display && currentIndex < words.length
+            ? "Memorize..."
+            : "Start Test"}
         </button>
       )}
 
@@ -84,10 +95,13 @@ const Memory = () => {
           {accDisplay && (
             <button className="memory-btn" onClick={Accuracy}>
               Show Accuracy
-            </button> 
+            </button>
           )}
 
           {!accDisplay && <h2>Your accuracy is {accuracy} out of 20</h2>}
+          <button onClick={exportAccuracy} className="memory-btn">
+            Save Score
+          </button>
           <button className="memory-btn" onClick={refresh}>
             Restart
           </button>

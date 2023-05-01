@@ -18,6 +18,8 @@ const Auth = () => {
     } catch (err) {
       console.error(err);
       alert("Invalid Email or Password");
+    } finally {
+      window.location.reload();
     }
   };
 
@@ -27,6 +29,8 @@ const Auth = () => {
     } catch (err) {
       console.error(err);
       alert("Invalid Email or Password");
+    } finally {
+      window.location.reload();
     }
   };
 
@@ -35,15 +39,15 @@ const Auth = () => {
       await signOut(auth);
     } catch (err) {
       console.error(err);
+    } finally {
+      window.location.reload();
     }
   };
 
-  //console.log(auth.currentUser)
-
   return (
     <div className="auth-page">
-      <h1>Log In/ Sign Up</h1>
-      {auth.currentUser == null ? (
+      <h1>Profile</h1>
+      {auth?.currentUser == null ? (
         <div>
           <input
             className="auth-input"
