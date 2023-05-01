@@ -96,7 +96,7 @@ const Scramble = () => {
           <div className="scr-check-block">
             {accDisplay && (
               <button onClick={Accuracy} className="scramble-btn">
-                Show Answers & Accuracy
+                Show Ans. & Score
               </button>
             )}
 
