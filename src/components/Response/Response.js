@@ -2,7 +2,7 @@ import "./Response.css";
 import React, { useState, useEffect } from "react";
 
 const Response = () => {
-  const [currentTime, setCurrentTime] = useState(60);
+  const [currentTime, setCurrentTime] = useState(5);
   const [squares, setSquares] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [score, setScore] = useState(0);
@@ -16,9 +16,11 @@ const Response = () => {
 
   useEffect(() => {
     if (isActive) {
+      // eslint-disable-next-line
       timerId = setInterval(() => {
         setCurrentTime((currentTime) => currentTime - 1);
       }, 1000);
+      // eslint-disable-next-line
       moveId = setInterval(toggleColor, 400);
     }
     return () => {
@@ -31,7 +33,7 @@ const Response = () => {
     if (currentTime === 0) {
       clearInterval(timerId);
       clearInterval(moveId);
-    }
+    }// eslint-disable-next-line
   }, [currentTime]);
 
   const startGame = () => {
