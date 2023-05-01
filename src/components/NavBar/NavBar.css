@@ -16,6 +16,7 @@
     border: solid #111 2px;
     width: 128px;
     height: 64px;
+    box-shadow: 9px 9px 0px #000000;
 }
 
 .memory {
