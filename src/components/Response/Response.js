@@ -21,7 +21,7 @@ const Response = () => {
         setCurrentTime((currentTime) => currentTime - 1);
       }, 1000);
       // eslint-disable-next-line
-      moveId = setInterval(toggleColor, 500);
+      moveId = setInterval(toggleColor, 350);
     }
     return () => {
       clearInterval(timerId);
