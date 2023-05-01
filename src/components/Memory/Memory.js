@@ -70,7 +70,7 @@ const Memory = () => {
       </div>
       {currentIndex <= words.length && (
         <button onClick={displayWords} className="memory-btn">
-          {display && currentIndex < words.length ? "Memorize..." : "Test your memory"}
+          {display && currentIndex < words.length ? "Memorize..." : "Start Test"}
         </button>
       )}
 
