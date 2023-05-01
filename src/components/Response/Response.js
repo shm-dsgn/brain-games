@@ -21,7 +21,7 @@ const Response = () => {
         setCurrentTime((currentTime) => currentTime - 1);
       }, 1000);
       // eslint-disable-next-line
-      moveId = setInterval(toggleColor, 400);
+      moveId = setInterval(toggleColor, 500);
     }
     return () => {
       clearInterval(timerId);
@@ -59,8 +59,8 @@ const Response = () => {
   };
 
   return (
-    <div className="response">
-      <h2>3. Response</h2>
+    <div className="response-page">
+      <h1>3. Response</h1>
       <p>Test your reflexes and click on the highlighted boxes as many times as you can in given time.</p>
       {currentTime !== 0 && (
         <p>Time Left : <b>{currentTime}</b> s</p>

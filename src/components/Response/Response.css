@@ -1,5 +1,6 @@
-.response,
+.response-page,
 .result-block {
+  margin: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -42,6 +42,7 @@ const Auth = () => {
 
   return (
     <div className="auth-page">
+      <h1>Log In/ Sign Up</h1>
       {auth.currentUser == null ? (
         <div>
           <input
