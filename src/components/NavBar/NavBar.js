@@ -11,6 +11,10 @@ function NavBar() {
   };
   return (
     <nav className="nav-section">
+      <NavLink to="/" style={navLinkStyles}>
+        <div className="nav-block home">Home</div>
+      </NavLink>
+
       <NavLink to="/memory" style={navLinkStyles}>
         <div className="nav-block memory">Memory</div>
       </NavLink>
@@ -23,7 +27,7 @@ function NavBar() {
         <div className="nav-block response">Response</div>
       </NavLink>
 
-      <NavLink to="/" style={navLinkStyles}>
+      <NavLink to="/profile" style={navLinkStyles}>
         <div className="nav-block auth">Profile</div>
       </NavLink>
     </nav>

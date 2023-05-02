@@ -15,9 +15,13 @@
   align-items: center;
   border-radius: 8px;
   border: solid #111 2px;
-  width: 128px;
+  width: 192px;
   height: 64px;
   box-shadow: 7px 7px 0px #000000;
+}
+
+.home {
+  background-color: #c49aff;
 }
 
 .memory {
@@ -49,9 +53,13 @@ nav a {
 @media (max-width: 768px) {
   .nav-section {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .nav-block {
+    width: 300px;
+    height: 48px;
   }
 }

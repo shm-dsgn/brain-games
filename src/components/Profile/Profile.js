@@ -8,6 +8,19 @@ const Profile = (props) => {
   const [scoreList, setScoreList] = useState([]);
   const scoresCollectionRef = collection(db, "scores");
 
+  const sortScoreList = (list) => {
+    const sortedList = list.sort((a, b) => {
+      if (a.memory + a.scramble + a.response > b.memory + b.scramble + b.response) {
+        return -1;
+      }
+      if (a.memory + a.scramble + a.response < b.memory + b.scramble + b.response) {
+        return 1;
+      }
+      return 0;
+    });
+    setScoreList(sortedList);
+  }
+
   const getScoreList = async () => {
     try {
       const data = await getDocs(scoresCollectionRef);
@@ -16,6 +29,7 @@ const Profile = (props) => {
         id: doc.id,
       }));
       setScoreList(filteredData);
+      sortScoreList(filteredData);
     } catch (err) {
       console.error(err);
     }
@@ -59,12 +73,18 @@ const Profile = (props) => {
               Submit your Scores
             </button>
 
-            {scoreList.map((score) => (
-              <div key={score.id} className="user-scores">
-                <p>User: {score.user}</p>
-                <p>Memory: {score.memory}, Scramble: {score.scramble}, Response: {score.response}</p>
-              </div>
-            ))}
+            {scoreList.map(
+              (score) =>
+                score.userId === auth?.currentUser?.uid && (
+                  <div key={score.id} className="user-scores">
+                    <p>User: {score.user}</p>
+                    <p>
+                      Memory: {score.memory}, Scramble: {score.scramble},
+                      Response: {score.response}
+                    </p>
+                  </div>
+                )
+            )}
           </div>
         </div>
       )}

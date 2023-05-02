@@ -7,6 +7,7 @@ import Response from "./components/Response/Response";
 import Scramble from "./components/Scramble/Scramble";
 import NavBar from "./components/NavBar/NavBar";
 import Error from "./components/Error/Error";
+import Home from "./components/Home/Home";
 
 function App() {
   const [memScore, setMemScore] = useState(0);
@@ -33,8 +34,9 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
+        <Route path="/" element={<Home/>} />
         <Route
-          path="/"
+          path="/profile"
           element={
             <Profile
               m={memScore}

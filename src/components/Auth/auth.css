@@ -4,7 +4,6 @@
 .auth-page {
   display: flex;
   flex-direction: column;
-  margin: 32px;
   align-items: center;
   justify-content: center;
 }
