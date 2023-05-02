@@ -5,3 +5,25 @@
     align-items: center;
     justify-content: center;
   }
+
+  footer {
+    color: white;
+    position: fixed;
+    background-color: black;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0px 24px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-p {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
