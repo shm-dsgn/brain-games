@@ -63,16 +63,16 @@ function Home() {
           <a
             href="https://drive.google.com/file/d/1-1-9ht1R1086T9KF3m0Ooy4swHL-NFPv/view?usp=share_link"
             target="_blank"
-            title="My Resume/CV"
+            title="Resume/CV"
             rel="noreferrer"
           >
-            <ReadCvLogo size={24} color="#ff0000" weight="fill" />
+            <ReadCvLogo size={24} color="#2FB400" weight="fill" />
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <a
             href="https://github.com/shm-dsgn"
             target="_blank"
-            title="My GitHub"
+            title="GitHub"
             rel="noreferrer"
           >
             <GithubLogo
@@ -80,14 +80,13 @@ function Home() {
               color="#ffffff"
               weight="fill"
               title="GitHub"
-              rel="noreferrer"
             />
           </a>
           &nbsp;&nbsp;&nbsp;&nbsp;
           <a
             href="https://www.linkedin.com/in/shm-dsgn"
             target="_blank"
-            title="My LinkedIn"
+            title="LinkedIn"
             rel="noreferrer"
           >
             <LinkedinLogo size={24} color="#0a66c2" weight="fill" />
