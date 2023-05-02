@@ -10,16 +10,22 @@ const Profile = (props) => {
 
   const sortScoreList = (list) => {
     const sortedList = list.sort((a, b) => {
-      if (a.memory + a.scramble + a.response > b.memory + b.scramble + b.response) {
+      if (
+        a.memory + a.scramble + a.response >
+        b.memory + b.scramble + b.response
+      ) {
         return -1;
       }
-      if (a.memory + a.scramble + a.response < b.memory + b.scramble + b.response) {
+      if (
+        a.memory + a.scramble + a.response <
+        b.memory + b.scramble + b.response
+      ) {
         return 1;
       }
       return 0;
     });
     setScoreList(sortedList);
-  }
+  };
 
   const getScoreList = async () => {
     try {
@@ -60,7 +66,13 @@ const Profile = (props) => {
     }
   };
 
-  // if (props.p) console.log(props);
+  let flag = false;
+  for (let i = 0; i < scoreList.length; i++) {
+    if (scoreList[i].userId === auth?.currentUser?.uid) {
+      flag = true;
+      break;
+    }
+  }
 
   return (
     <div className="profile-block">
@@ -72,10 +84,10 @@ const Profile = (props) => {
             <button onClick={onSubmitScore} className="profile-btn">
               Submit your Scores
             </button>
-
-            {scoreList.map(
-              (score) =>
-                score.userId === auth?.currentUser?.uid && (
+            <h3>Your Scores</h3>
+            {flag ? (
+              scoreList.map((score) =>
+                score.userId === auth?.currentUser?.uid ? (
                   <div key={score.id} className="user-scores">
                     <p>User: {score.user}</p>
                     <p>
@@ -83,7 +95,10 @@ const Profile = (props) => {
                       Response: {score.response}
                     </p>
                   </div>
-                )
+                ) : null
+              )
+            ) : (
+              <p>No scores in your account. Start Playing now!!</p>
             )}
           </div>
         </div>
