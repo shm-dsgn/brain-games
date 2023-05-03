@@ -1,7 +1,5 @@
 import "./Home.css";
 import {
-  Coffee,
-  Heart,
   GithubLogo,
   LinkedinLogo,
   ReadCvLogo,
@@ -53,10 +51,7 @@ function Home() {
 
       <footer>
         <p className="footer-p">
-          Made with &nbsp;
-          <Heart color="#ff0000" size={24} weight="fill" />
-          &nbsp; & &nbsp;
-          <Coffee size={24} color="#e1a523" weight="fill" />
+          &#169;shm-dsgn
         </p>
 
         <p className="footer-p">
