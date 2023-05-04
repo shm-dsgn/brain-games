@@ -1,5 +1,7 @@
 import "./Response.css";
 import React, { useState, useEffect } from "react";
+import { auth } from "../../config/firebase";
+import LoginError from "../LoginError/LoginError";
 
 const Response = (props) => {
   const [currentTime, setCurrentTime] = useState(30);
@@ -62,47 +64,51 @@ const Response = (props) => {
     props.handleCallback(score);
   };
 
-  return (
-    <div className="response-page">
-      <h1>3. Response</h1>
-      <p>
-        Test your reflexes and click on the highlighted boxes as many times as
-        you can in given time.
-      </p>
-      {currentTime !== 0 && (
+  if (auth?.currentUser === null) {
+    return <LoginError />;
+  } else {
+    return (
+      <div className="response-page">
+        <h1>3. Response</h1>
         <p>
-          Time Left : <b>{currentTime}</b> s
+          Test your reflexes and click on the highlighted boxes as many times as
+          you can in given time.
         </p>
-      )}
-      <div className="grid">
-        {squares.map((_, index) => (
-          <div
-            className="square"
-            id={index + 1}
-            key={index + 1}
-            onClick={countClicks}
-          ></div>
-        ))}
-      </div>
-      {currentTime !== 0 && (
-        <button onClick={startGame} className="start-btn">
-          Start
-        </button>
-      )}
-
-      {currentTime === 0 && (
-        <div className="result-block">
-          <h2>Game Over, your Score : {score}</h2>
-          <button onClick={exportAccuracy} className="start-btn">
-            Save Score
-          </button>
-          <button onClick={refresh} className="start-btn">
-            Restart
-          </button>
+        {currentTime !== 0 && (
+          <p>
+            Time Left : <b>{currentTime}</b> s
+          </p>
+        )}
+        <div className="grid">
+          {squares.map((_, index) => (
+            <div
+              className="square"
+              id={index + 1}
+              key={index + 1}
+              onClick={countClicks}
+            ></div>
+          ))}
         </div>
-      )}
-    </div>
-  );
+        {currentTime !== 0 && (
+          <button onClick={startGame} className="start-btn">
+            Start
+          </button>
+        )}
+
+        {currentTime === 0 && (
+          <div className="result-block">
+            <h2>Game Over, your Score : {score}</h2>
+            <button onClick={exportAccuracy} className="start-btn">
+              Save Score
+            </button>
+            <button onClick={refresh} className="start-btn">
+              Restart
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  }
 };
 
 export default Response;

@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./Memory.css";
+import { auth } from "../../config/firebase";
+import LoginError from "../LoginError/LoginError";
 
 const Memory = (props) => {
   const [words, setWords] = useState([]);
@@ -56,59 +58,63 @@ const Memory = (props) => {
     props.handleCallback(accuracy);
   };
 
-  return (
-    <div className="memory-block">
-      <h1>1. Memory Test</h1>
-      <p id="description">
-        In this test, you will see about twenty words, each for a short amount
-        of time. Try to memorize as many as you can. Order and case don't
-        matter. Separate words by space or newlines.
-      </p>
-      <p id="description">
-        Note: This test is not timed, but you will have to wait for the words to
-        appear. If words don't appear, please refresh the page. It might be some
-        issue from our side.
-      </p>
+  if (auth?.currentUser === null) {
+    return <LoginError />;
+  } else {
+    return (
+      <div className="memory-block">
+        <h1>1. Memory Test</h1>
+        <p id="description">
+          In this test, you will see about twenty words, each for a short amount
+          of time. Try to memorize as many as you can. Order and case don't
+          matter. Separate words by space or newlines.
+        </p>
+        <p id="description">
+          Note: This test is not timed, but you will have to wait for the words
+          to appear. If words don't appear, please refresh the page. It might be
+          some issue from our side.
+        </p>
 
-      <div>
-        {display && currentIndex < words.length && (
-          <div>
-            <p className="word-display">{words[currentIndex]}</p>
+        <div>
+          {display && currentIndex < words.length && (
+            <div>
+              <p className="word-display">{words[currentIndex]}</p>
+            </div>
+          )}
+        </div>
+        {currentIndex <= words.length && (
+          <button onClick={displayWords} className="memory-btn">
+            {display && currentIndex < words.length
+              ? "Memorize..."
+              : "Start Test"}
+          </button>
+        )}
+
+        {currentIndex > words.length && (
+          <div className="check-block">
+            <textarea
+              onChange={(e) => setUserInput(e.target.value)}
+              id="userinput"
+              placeholder="Write down as many words as you remember. Order and case don't matter. Separate words by space or newlines."
+            ></textarea>
+            {accDisplay && (
+              <button className="memory-btn" onClick={Accuracy}>
+                Show Accuracy
+              </button>
+            )}
+
+            {!accDisplay && <h2>Your accuracy is {accuracy} out of 20</h2>}
+            <button onClick={exportAccuracy} className="memory-btn">
+              Save Score
+            </button>
+            <button className="memory-btn" onClick={refresh}>
+              Restart
+            </button>
           </div>
         )}
       </div>
-      {currentIndex <= words.length && (
-        <button onClick={displayWords} className="memory-btn">
-          {display && currentIndex < words.length
-            ? "Memorize..."
-            : "Start Test"}
-        </button>
-      )}
-
-      {currentIndex > words.length && (
-        <div className="check-block">
-          <textarea
-            onChange={(e) => setUserInput(e.target.value)}
-            id="userinput"
-            placeholder="Write down as many words as you remember. Order and case don't matter. Separate words by space or newlines."
-          ></textarea>
-          {accDisplay && (
-            <button className="memory-btn" onClick={Accuracy}>
-              Show Accuracy
-            </button>
-          )}
-
-          {!accDisplay && <h2>Your accuracy is {accuracy} out of 20</h2>}
-          <button onClick={exportAccuracy} className="memory-btn">
-            Save Score
-          </button>
-          <button className="memory-btn" onClick={refresh}>
-            Restart
-          </button>
-        </div>
-      )}
-    </div>
-  );
+    );
+  }
 };
 
 export default Memory;
