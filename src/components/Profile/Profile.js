@@ -74,6 +74,8 @@ const Profile = (props) => {
     }
   }
 
+  console.log(auth?.currentUser?.uid);
+
   return (
     <div className="profile-block">
       <Auth />

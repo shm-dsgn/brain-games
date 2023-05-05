@@ -1,10 +1,8 @@
 import "./Response.css";
 import React, { useState, useEffect } from "react";
-import { auth } from "../../config/firebase";
-import LoginError from "../LoginError/LoginError";
 
 const Response = (props) => {
-  const [currentTime, setCurrentTime] = useState(30);
+  const [currentTime, setCurrentTime] = useState(10);
   const [squares, setSquares] = useState([]);
   const [isActive, setIsActive] = useState(false);
   const [score, setScore] = useState(0);
@@ -56,59 +54,56 @@ const Response = (props) => {
     }
   };
 
-  const refresh = () => {
-    window.location.reload(true);
+  const Refresh = () => {
+    window.location.reload();
   };
 
   const exportAccuracy = () => {
+    setIsActive(false);
     props.handleCallback(score);
   };
 
-  if (auth?.currentUser === null) {
-    return <LoginError />;
-  } else {
-    return (
-      <div className="response-page">
-        <h1>3. Response</h1>
+  return (
+    <div className="response-page">
+      <h1>3. Response</h1>
+      <p>
+        Test your reflexes and click on the highlighted boxes as many times as
+        you can in given time.
+      </p>
+      {currentTime !== 0 && (
         <p>
-          Test your reflexes and click on the highlighted boxes as many times as
-          you can in given time.
+          Time Left : <b>{currentTime}</b> s
         </p>
-        {currentTime !== 0 && (
-          <p>
-            Time Left : <b>{currentTime}</b> s
-          </p>
-        )}
-        <div className="grid">
-          {squares.map((_, index) => (
-            <div
-              className="square"
-              id={index + 1}
-              key={index + 1}
-              onClick={countClicks}
-            ></div>
-          ))}
-        </div>
-        {currentTime !== 0 && (
-          <button onClick={startGame} className="start-btn">
-            Start
-          </button>
-        )}
-
-        {currentTime === 0 && (
-          <div className="result-block">
-            <h2>Game Over, your Score : {score}</h2>
-            <button onClick={exportAccuracy} className="start-btn">
-              Save Score
-            </button>
-            <button onClick={refresh} className="start-btn">
-              Restart
-            </button>
-          </div>
-        )}
+      )}
+      <div className="grid">
+        {squares.map((_, index) => (
+          <div
+            className="square"
+            id={index + 1}
+            key={index + 1}
+            onClick={countClicks}
+          ></div>
+        ))}
       </div>
-    );
-  }
+      {currentTime !== 0 && (
+        <button onClick={startGame} className="start-btn">
+          Start
+        </button>
+      )}
+
+      {currentTime === 0 && (
+        <div className="result-block">
+          <h2>Game Over, your Score : {score}</h2>
+          <button onClick={exportAccuracy} className="start-btn">
+            Save Score
+          </button>
+          <button onClick={Refresh} className="start-btn">
+            Restart
+          </button>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default Response;
