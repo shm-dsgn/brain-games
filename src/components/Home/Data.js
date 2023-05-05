@@ -6,7 +6,7 @@ export const Data = [
     skills and response time/reflex.`,
   },
   {
-    title: "How do I play?",
+    title: "How do I play the games?",
     content: `There are 3 games in total, you can choose whichever you want to play.
       If you want to save your scores for viewing later, you can do so by
       signing in by Email and Password or directly with your Google Account.`,
