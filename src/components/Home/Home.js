@@ -6,6 +6,7 @@ import { GithubLogo, LinkedinLogo, ReadCvLogo } from "@phosphor-icons/react";
 function Home() {
   return (
     <div className="home-block">
+      <h1>Home</h1>
       {Data.map(({ title, content }) => (
         <Accordion title={title} content={content} />
       ))}
